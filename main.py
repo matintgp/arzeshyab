@@ -37,13 +37,13 @@ score = {}
 
 def up(message):
     if message.reply_to_message != None:
-        username = str(message.reply_to_message.from_user.username)
+        username = str(message.reply_to_message.from_user.first_name)
         id = message.reply_to_message.from_user.id
         if username in score:
             score[str(username)]+=10
         else:
             score[username]=10
-        text = f'* 10 score lost for @{username}.  ur score is {score[username]}'
+        text = f'* 10 score lost for {username}.  ur score is {score[username]}'
         bot.send_message(message.chat.id, text)
         return score
     else:
@@ -51,13 +51,13 @@ def up(message):
 
 def down(message):
     if message.reply_to_message != None:
-        username = str(message.reply_to_message.from_user.username)
+        username = str(message.reply_to_message.from_user.first_name)
         id = message.reply_to_message.from_user.id
         if username in score:
             score[str(username)]-=10
         else:
             score[username]= -10
-        text = f'* 10 score is lost for @{username}.  ur score is {score[username]}'
+        text = f'* 10 score is lost for {username}.  ur score is {score[username]}'
         bot.send_message(message.chat.id, text)
         return score
     else:
@@ -71,7 +71,7 @@ def table(message):
         
         text = ''
         for i in range(len(names)):
-            text += f'- @{names[i]} : {ss[i]}\n'
+            text += f'- {names[i]} : {ss[i]}\n'
             # text.append([{names[i]:int(ss[i])}])  #bug dare
             # text.sort()
             # text = str(text)
@@ -84,7 +84,9 @@ def table(message):
 
 
 
-while True:
-    bot.polling()
-    time.sleep(20)
-    bot.stop_polling
+#while True:
+ #   bot.polling()
+  #  time.sleep(20)
+   # bot.stop_polling()
+bot.infinity_polling()
+
