@@ -47,7 +47,7 @@ def up(message):
         bot.send_message(message.chat.id, text)
         return score
     else:
-        bot.send_message(message.chat.id, "ریپلای نکردی که یهود")
+        bot.send_message(message.chat.id, "ریپلای نکردی که ")
 
 def down(message):
     if message.reply_to_message != None:
