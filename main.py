@@ -61,7 +61,7 @@ def down(message):
         bot.send_message(message.chat.id, text)
         return score
     else:
-        bot.send_message(message.chat.id, "ریپلای نکردی که یهود")
+        bot.send_message(message.chat.id, "ریپلای نکردی که ")
 
 @bot.message_handler(commands=['scores'])
 def table(message):
